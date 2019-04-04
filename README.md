@@ -22,68 +22,79 @@ grunt.loadNpmTasks('grunt-translation-spreadsheet-sync');
 ### Overview
 In your project's Gruntfile, add a section named `translation_spreadsheet_sync` to the data object passed into `grunt.initConfig()`.
 
+An example config could look like:
+
 ```js
 grunt.initConfig({
   translation_spreadsheet_sync: {
     options: {
-      // Task-specific options go here.
+        spreadsheetId: '-your google spreadsheet id-',
+        credentials: require('path/to/your/secret/credential/service')
     },
-    your_target: {
-      // Target-specific file lists and/or options go here.
+    download: {
+        options: {
+            mode: 'import'
+        },
+        files: {
+            src: 'src/languages/'
+        },
     },
-  },
+    upload: {
+        options: {
+            mode: 'upload'
+        },
+        files: {
+            src: 'src/languages/*.json'
+        }
+    }
+  }
 });
 ```
 
 ### Options
 
-#### options.separator
+#### options.spreadsheetId
 Type: `String`
-Default value: `',  '`
+Default value: `null`
 
-A string value that is used to do something with whatever.
+This is absolutely required to make it work
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
+#### options.credentials
+Type: `Object`
+Default value: `Credentials for service@seismic-hexagon-171311.iam.gserviceaccount.com`
 
-A string value that is used to do something else with whatever else.
+In order to authenticate to a google spreadsheet, you need a [google drive api client](https://console.developers.google.com). If you trust me enough, you could also grant read/write access to the default service `service@seismic-hexagon-171311.iam.gserviceaccount.com`, otherwise please path your own.
 
-### Usage Examples
+The object needs to have this structure: 
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+```javascript
+{
+  "comment": "This is added by me, put here some infor for yourself, to remind you what this is actually about, if you like ;)",
 
-```js
-grunt.initConfig({
-  translation_spreadsheet_sync: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
+  "type": "service_account",
+  "project_id": "...",
+  "private_key_id": "...",
+  "private_key": "shoud not be shared",
+  "client_email": "e.g.: service@seismic-hexagon-171311.iam.gserviceaccount.com",
+  "client_id": "...",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "..."
+}
 ```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+#### options.mode
+Type: `Enum`
+Default value: `null`
 
-```js
-grunt.initConfig({
-  translation_spreadsheet_sync: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
+Put `import`, if you want to sync from google spreadsheet to your project or put `upload` if it should go the other way around.
+
+#### options.translationFormat
+Type: `Enum`
+Default value: `locale_json`
+
+At the moment the tool can only handle export to locale.json files, feel free to create a PR or open an issue, if you need a different format.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
-
-## Release History
-_(Nothing yet)_
