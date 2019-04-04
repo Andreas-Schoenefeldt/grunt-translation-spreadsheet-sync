@@ -61,6 +61,8 @@ module.exports = function(grunt) {
             });
 
             translationFiles = translationFiles.concat(files);
+        }).map(function (file) {
+            return path.resolve(file);
         });
 
         switch (options.mode) {
@@ -73,7 +75,7 @@ module.exports = function(grunt) {
                 });
                 break;
             case 'import':
-                gstSync.exportToSpreadsheet(rootFolder, options.spreadsheetId, options.credentials, options.translationFormat, function () {
+                gstSync.exportToSpreadsheet(path.resolve(rootFolder), options.spreadsheetId, options.credentials, options.translationFormat, function () {
                     done();
                 });
                 break;
