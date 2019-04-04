@@ -54,13 +54,13 @@ grunt.initConfig({
 ### Options
 
 #### options.spreadsheetId
-Type: `String`
+Type: `String`   
 Default value: `null`
 
 This is absolutely required to make it work
 
 #### options.credentials
-Type: `Object`
+Type: `Object`    
 Default value: `Credentials for service@seismic-hexagon-171311.iam.gserviceaccount.com`
 
 In order to authenticate to a google spreadsheet, you need a [google drive api client](https://console.developers.google.com). If you trust me enough, you could also grant read/write access to the default service `service@seismic-hexagon-171311.iam.gserviceaccount.com`, otherwise please path your own.
@@ -85,13 +85,13 @@ The object needs to have this structure:
 ```
 
 #### options.mode
-Type: `Enum`
+Type: `Enum`    
 Default value: `null`
 
 Put `import`, if you want to sync from google spreadsheet to your project or put `upload` if it should go the other way around.
 
 #### options.translationFormat
-Type: `Enum`
+Type: `Enum`   
 Default value: `locale_json`
 
 At the moment the tool can only handle export to locale.json files, feel free to create a PR or open an issue, if you need a different format.
