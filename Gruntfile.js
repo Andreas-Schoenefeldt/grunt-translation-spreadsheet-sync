@@ -61,7 +61,7 @@ module.exports = function(grunt) {
 
         bump: {
             options: {
-                files: ['package.json', 'vitaplace-products.php'],
+                files: ['package.json'],
                 commitFiles: ['-a'],
                 pushTo: 'origin',
                 globalReplace: true,

@@ -63,7 +63,9 @@ This is absolutely required to make it work
 Type: `Object`    
 Default value: `Credentials for service@seismic-hexagon-171311.iam.gserviceaccount.com`
 
-In order to authenticate to a google spreadsheet, you need a [google drive api client](https://console.developers.google.com). If you trust me enough, you could also grant read/write access to the default service `service@seismic-hexagon-171311.iam.gserviceaccount.com`, otherwise please path your own.
+In order to authenticate to a google spreadsheet, you need a [google drive api client](https://console.developers.google.com).
+ 
+If you trust me enough, you could also grant read/write access to your translation spreadsheet the the default service email `service@seismic-hexagon-171311.iam.gserviceaccount.com`. Please note, that this will make you dependent on any changes that google or myself do to this service, it is recommended to use your own credentials.
 
 The object needs to have this structure: 
 
@@ -74,7 +76,7 @@ The object needs to have this structure:
   "type": "service_account",
   "project_id": "...",
   "private_key_id": "...",
-  "private_key": "shoud not be shared",
+  "private_key": "never to be shared",
   "client_email": "e.g.: service@seismic-hexagon-171311.iam.gserviceaccount.com",
   "client_id": "...",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
