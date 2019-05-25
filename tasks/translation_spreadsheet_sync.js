@@ -34,6 +34,10 @@ module.exports = function(grunt) {
             grunt.fatal('The option mode must be defined!');
         }
 
+        if (gstSync.possibleTranslationFormats.indexOf(options.translationFormat) < 0) {
+            grunt.fatal('The option translationFormat must be one of ' + gstSync.possibleTranslationFormats.join(', ') + '!');
+        }
+
         let translationFiles = [];
         let rootFolder = null;
 

@@ -92,9 +92,12 @@ Put `import`, if you want to sync from google spreadsheet to your project or put
 
 #### options.translationFormat
 Type: `Enum`   
+Possible Values: 
+* `locale_json` (translations are stored in simple key/value json files)
+* `gettext` (utilizes [node gettext-parser](https://github.com/smhg/gettext-parser) for the work with po and mo files)      
 Default value: `locale_json`
 
-At the moment the tool can only handle export to locale.json files, feel free to create a PR or open an issue, if you need a different format.
+Please feel free to create a PR or open an issue, if you need an additional translation format.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
