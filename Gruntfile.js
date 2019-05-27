@@ -73,20 +73,20 @@ module.exports = function(grunt) {
                 options: {
                     questions: [
                         {
-                            config:  'bump.options.increment',
+                            config:  'bump.options.setVersion',
                             type:    'list',
                             message: 'Bump version from ' + '<%= pkg.version %>' + ' to:',
                             choices: [
                                 {
-                                    value: 'patch',
+                                    value: semver.inc(currentVersion, 'patch'),
                                     name:  'Patch:  ' + semver.inc(currentVersion, 'patch') + ' Backwards-compatible bug fixes.'
                                 },
                                 {
-                                    value: 'minor',
+                                    value: semver.inc(currentVersion, 'minor'),
                                     name:  'Minor:  ' + semver.inc(currentVersion, 'minor') + ' Add functionality in a backwards-compatible manner.'
                                 },
                                 {
-                                    value: 'major',
+                                    value: semver.inc(currentVersion, 'major'),
                                     name:  'Major:  ' + semver.inc(currentVersion, 'major') + ' Incompatible API changes.'
                                 },
                                 {
@@ -100,7 +100,7 @@ module.exports = function(grunt) {
                             type:     'input',
                             message:  'What specific version would you like',
                             when:     function (answers) {
-                                return answers['bump.options.increment'] === 'custom';
+                                return answers['bump.options.setVersion'] === 'custom';
                             },
                             validate: function (value) {
                                 var valid = semver.valid(value);

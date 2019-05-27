@@ -51,13 +51,7 @@ grunt.initConfig({
 });
 ```
 
-### Options
-
-#### options.spreadsheetId
-Type: `String`   
-Default value: `null`
-
-This is absolutely required to make it work
+### Options   
 
 #### options.credentials
 Type: `Object`    
@@ -86,6 +80,12 @@ The object needs to have this structure:
 }
 ```
 
+#### options.fileBaseName
+Type: `String`    
+Default value: (empty string)    
+
+If set, the translation files will be changed to `<fileNaseName>-<lang code>_<country code>`, for example `myplugin-de_AT`.
+
 #### options.mode
 Type: `Enum`    
 Default value: `null`
@@ -100,6 +100,12 @@ Possible Values:
 Default value: `locale_json`
 
 Please feel free to create a PR or open an issue, if you need an additional translation format.
+
+#### options.spreadsheetId
+Type: `String`   
+Default value: `null`
+
+This is absolutely required to make it work
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).

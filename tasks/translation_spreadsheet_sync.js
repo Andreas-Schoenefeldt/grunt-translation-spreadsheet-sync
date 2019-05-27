@@ -23,6 +23,7 @@ module.exports = function(grunt) {
         const options = this.options({
             keyId: 'key',
             credentials: require('google-spreadsheet-translation-sync/test/data/google-test-access.json'),
+            fileBaseName: '',
             translationFormat: 'locale_json'
         });
 
@@ -74,12 +75,12 @@ module.exports = function(grunt) {
                 grunt.fatal('Unrecognised mode option value ' + options.mode);
                 break;
             case 'upload':
-                gstSync.exportToSpreadsheet(translationFiles, options.spreadsheetId, options.credentials, options.translationFormat, function () {
+                gstSync.exportToSpreadsheet(translationFiles, options, function () {
                     done();
                 });
                 break;
             case 'import':
-                gstSync.importFromSpreadsheet(path.resolve(rootFolder), options.spreadsheetId, options.credentials, options.translationFormat, function () {
+                gstSync.importFromSpreadsheet(path.resolve(rootFolder), options, function () {
                     done();
                 });
                 break;
