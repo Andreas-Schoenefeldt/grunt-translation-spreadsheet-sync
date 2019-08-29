@@ -11,6 +11,11 @@
 const gstSync = require('google-spreadsheet-translation-sync');
 const path = require('path');
 
+const MODE = {
+    IMPORT: 'import',
+    UPLOAD: 'upload'
+};
+
 module.exports = function(grunt) {
 
     // Please see the Grunt documentation for more information regarding task
@@ -47,7 +52,7 @@ module.exports = function(grunt) {
                 if (!grunt.file.exists(filepath)) {
                     grunt.log.warn('Source file "' + filepath + '" not found.');
                     return false;
-                } else if (options.mode) {
+                } else if (options.mode === MODE.IMPORT) {
                     let base;
 
                     if (grunt.file.isFile(filepath)) {
@@ -59,7 +64,7 @@ module.exports = function(grunt) {
                     if (!rootFolder || rootFolder === base) {
                         rootFolder = base;
                     } else {
-                        grunt.log.warn('Your file configuration mathes more then one root folder, we stick to  "' + rootFolder + ' (ignored ' + base + ')');
+                        grunt.log.warn('Your file configuration matches more then one root folder, we stick to  "' + rootFolder + ' (ignored ' + base + ')');
                     }
                 }
                 return true;
@@ -74,12 +79,12 @@ module.exports = function(grunt) {
             default:
                 grunt.fatal('Unrecognised mode option value ' + options.mode);
                 break;
-            case 'upload':
+            case MODE.UPLOAD:
                 gstSync.exportToSpreadsheet(translationFiles, options, function () {
                     done();
                 });
                 break;
-            case 'import':
+            case MODE.IMPORT:
                 gstSync.importFromSpreadsheet(path.resolve(rootFolder), options, function () {
                     done();
                 });

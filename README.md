@@ -31,7 +31,7 @@ grunt.initConfig({
         spreadsheetId: '-your google spreadsheet id-',
         credentials: require('path/to/your/secret/credential/service')
     },
-    download: {
+    import: {
         options: {
             mode: 'import'
         },
@@ -65,7 +65,7 @@ The object needs to have this structure:
 
 ```javascript
 {
-  "comment": "This is added by me, put here some infor for yourself, to remind you what this is actually about, if you like ;)",
+  "comment": "This is added by me, put here some info for yourself, to remind you what this is actually about, if you like ;)",
 
   "type": "service_account",
   "project_id": "...",
