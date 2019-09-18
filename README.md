@@ -80,6 +80,12 @@ The object needs to have this structure:
 }
 ```
 
+#### options.defaultLocaleName
+Type: `String`   
+Default value: 'default'
+
+If no locale is provided or could be parsed, the defaultLocaleName is used instead.
+
 #### options.fileBaseName
 Type: `String`    
 Default value: (empty string)    
@@ -92,11 +98,24 @@ Default value: `null`
 
 Put `import`, if you want to sync from google spreadsheet to your project or put `upload` if it should go the other way around.
 
+#### options.namespaces
+Type: `Boolean`    
+Default value: `false`
+
+If multiple base filenames are used in a project, this can be turned on, to still have the properties uploaded to one spreadsheet. It will expect the first collumn of the sheet to be filled with the namespace. 
+
+#### options.namespaceSeparator
+Type: `String`    
+Default value: '-'
+
+If `namespaces` or `fileBaseName` is used, this is the separating character. For example the first `_` in `messages_en_US.json`.   
+
 #### options.translationFormat
 Type: `Enum`   
 Possible Values: 
 * `locale_json` (translations are stored in simple key/value json files)
-* `gettext` (utilizes [node gettext-parser](https://github.com/smhg/gettext-parser) for the work with po and mo files)      
+* `gettext` (utilizes [node gettext-parser](https://github.com/smhg/gettext-parser) for the work with po and mo files)
+* `properties` (utilizes [propertie-reader](https://github.com/steveukx/properties) for java property files)      
 Default value: `locale_json`
 
 Please feel free to create a PR or open an issue, if you need an additional translation format.
@@ -105,7 +124,7 @@ Please feel free to create a PR or open an issue, if you need an additional tran
 Type: `String`   
 Default value: `null`
 
-This is absolutely required to make it work
+This is absolutely required to make it work  
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).

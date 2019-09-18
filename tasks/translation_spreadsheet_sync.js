@@ -29,7 +29,9 @@ module.exports = function(grunt) {
             keyId: 'key',
             credentials: require('google-spreadsheet-translation-sync/test/data/google-test-access.json'),
             fileBaseName: '',
-            translationFormat: 'locale_json'
+            translationFormat: 'locale_json',
+            defaultLocaleName: 'default',
+            namespaceSeparator: '-'
         });
 
         if (! options.spreadsheetId) {

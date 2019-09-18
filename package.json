@@ -1,7 +1,7 @@
 {
   "name": "grunt-translation-spreadsheet-sync",
   "description": "A grunt plugin to manage translation import/export to and from a google spreadsheet",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "homepage": "https://github.com/Andreas-Schoenefeldt/grunt-translation-spreadsheet-sync",
   "author": {
     "name": "Andreas Schönefeldt",
@@ -43,6 +43,6 @@
     "google"
   ],
   "dependencies": {
-    "google-spreadsheet-translation-sync": "^1.1.2"
+    "google-spreadsheet-translation-sync": "^1.1.3"
   }
 }
