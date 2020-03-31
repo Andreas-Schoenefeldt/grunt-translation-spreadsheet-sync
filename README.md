@@ -92,6 +92,12 @@ Default value: (empty string)
 
 If set, the translation files will be changed to `<fileNaseName>-<lang code>_<country code>`, for example `myplugin-de_AT`.
 
+#### options.gid
+Type: `String`    
+Default value: "0"
+
+The selected Worksheet to work with. the gid can be taken from the spreatsheet url: #gid=**1470321642**
+
 #### options.mode
 Type: `Enum`    
 Default value: `null`
@@ -111,12 +117,12 @@ Default value: '-'
 If `namespaces` or `fileBaseName` is used, this is the separating character. For example the first `_` in `messages_en_US.json`.   
 
 #### options.translationFormat
-Type: `Enum`   
+Type: `Enum`
+Default value: `locale_json`   
 Possible Values: 
 * `locale_json` (translations are stored in simple key/value json files)
 * `gettext` (utilizes [node gettext-parser](https://github.com/smhg/gettext-parser) for the work with po and mo files)
 * `properties` (utilizes [propertie-reader](https://github.com/steveukx/properties) for java property files)      
-Default value: `locale_json`
 
 Please feel free to create a PR or open an issue, if you need an additional translation format.
 

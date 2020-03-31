@@ -27,6 +27,7 @@ module.exports = function(grunt) {
         // Merge task-specific and/or target-specific options with these defaults.
         const options = this.options({
             keyId: 'key',
+            gid: '0',
             credentials: require('google-spreadsheet-translation-sync/test/data/google-test-access.json'),
             fileBaseName: '',
             translationFormat: 'locale_json',
