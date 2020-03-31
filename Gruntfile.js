@@ -148,7 +148,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['jshint', 'test']);
 
     grunt.registerTask('build', 'Production Build', function() {
-        grunt.task.run('prompt', 'bump', 'shell:publish_npm', 'shell:merge');
+        grunt.task.run('prompt', 'bump', 'shell:publish_npm');
     });
 
 };
