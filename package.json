@@ -43,6 +43,6 @@
     "google"
   ],
   "dependencies": {
-    "google-spreadsheet-translation-sync": "^1.2.2"
+    "google-spreadsheet-translation-sync": "^1.2.3"
   }
 }

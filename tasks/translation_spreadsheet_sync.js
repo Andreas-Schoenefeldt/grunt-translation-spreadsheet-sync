@@ -83,13 +83,21 @@ module.exports = function(grunt) {
                 grunt.fatal('Unrecognised mode option value ' + options.mode);
                 break;
             case MODE.UPLOAD:
-                gstSync.exportToSpreadsheet(translationFiles, options, function () {
-                    done();
+                gstSync.exportToSpreadsheet(translationFiles, options, function (err) {
+                    if (err) {
+                        grunt.fatal(err)
+                    } else {
+                        done();
+                    }
                 });
                 break;
             case MODE.IMPORT:
-                gstSync.importFromSpreadsheet(path.resolve(rootFolder), options, function () {
-                    done();
+                gstSync.importFromSpreadsheet(path.resolve(rootFolder), options, function (err) {
+                    if (err) {
+                        grunt.fatal(err)
+                    } else {
+                        done();
+                    }
                 });
                 break;
         }
