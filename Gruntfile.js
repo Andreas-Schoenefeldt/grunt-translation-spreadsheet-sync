@@ -114,14 +114,18 @@ module.exports = function(grunt) {
 
         shell: {
             publish_npm: {
-                command: 'npm publish'
+                command: [
+                    'npmrc public',
+                    'npm publish'
+                ].join('&&')
             },
             merge: {
                 command: [
                     'git checkout develop',
                     'git pull origin develop',
                     'git merge master',
-                    'git push'
+                    'git push',
+                    'git checkout master' // stay on master
                 ].join('&&')
             }
         }
@@ -148,7 +152,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['jshint', 'test']);
 
     grunt.registerTask('build', 'Production Build', function() {
-        grunt.task.run('prompt', 'bump', 'shell:publish_npm');
+        grunt.task.run('prompt', 'bump', 'shell:publish_npm', 'shell:merge');
     });
 
 };
