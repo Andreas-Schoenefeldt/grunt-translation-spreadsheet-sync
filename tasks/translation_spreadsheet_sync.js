@@ -59,7 +59,7 @@ module.exports = function(grunt) {
                     let base;
 
                     if (grunt.file.isFile(filepath)) {
-                        base = path.basename(filepath);
+                        base = path.dirname(filepath);
                     } else if (grunt.file.isDir(filepath)) {
                         base = filepath;
                     }
