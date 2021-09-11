@@ -115,7 +115,6 @@ module.exports = function(grunt) {
         shell: {
             publish_npm: {
                 command: [
-                    'npmrc public',
                     'npm publish'
                 ].join('&&')
             },
