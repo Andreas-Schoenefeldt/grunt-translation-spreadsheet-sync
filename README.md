@@ -121,6 +121,7 @@ Type: `Enum`
 Default value: `locale_json`   
 Possible Values: 
 * `locale_json` (translations are stored in simple key/value json files)
+* `json_structure` (translations are broken down to a json tree spereated by the . character)
 * `gettext` (for the work with po and mo files)
 * `properties` (for java property files)
 * `yml` (for symfony yml translation files)
