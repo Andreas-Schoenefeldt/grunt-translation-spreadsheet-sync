@@ -112,6 +112,7 @@ module.exports = function(grunt) {
             }
         },
 
+
         shell: {
             publish_npm: {
                 command: [
