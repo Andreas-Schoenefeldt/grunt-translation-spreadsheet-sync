@@ -32,6 +32,7 @@ module.exports = function(grunt) {
             fileBaseName: '',
             translationFormat: 'locale_json',
             defaultLocaleName: 'default',
+            defaultFallback: false,
             namespaceSeparator: '-'
         });
 

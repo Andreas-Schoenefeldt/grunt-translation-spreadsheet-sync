@@ -86,6 +86,13 @@ Default value: 'default'
 
 If no locale is provided or could be parsed, the defaultLocaleName is used instead.
 
+#### options.defaultFallback
+Type: `Boolean`   
+Default value: `false`
+
+Fills empty columns automatically with the value from the defaultLocale - usefull if always complete translations have to be provided per file.
+
+
 #### options.fileBaseName
 Type: `String`    
 Default value: (empty string)    
