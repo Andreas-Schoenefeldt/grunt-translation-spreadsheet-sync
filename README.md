@@ -130,6 +130,7 @@ Possible Values:
 * `locale_json` (translations are stored in simple key/value json files)
 * `json_structure` (translations are broken down to a json tree spereated by the . character)
 * `gettext` (for the work with po and mo files)
+* `wordpress` (generates the dedicated wordpress translation files)
 * `properties` (for java property files)
 * `yml` (for symfony yml translation files)
 
