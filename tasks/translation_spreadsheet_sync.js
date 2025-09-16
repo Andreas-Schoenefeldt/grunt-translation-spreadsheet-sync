@@ -28,7 +28,7 @@ module.exports = function(grunt) {
         const options = this.options({
             keyId: 'key',
             gid: '0',
-            credentials: require('google-spreadsheet-translation-sync/test/data/google-test-access.json'),
+            credentials: require('google-spreadsheet-translation-sync/test/data/access.js'),
             fileBaseName: '',
             translationFormat: 'locale_json',
             defaultLocaleName: 'default',
